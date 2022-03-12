@@ -11,7 +11,7 @@ import { ProductService } from 'src/app/service/product.service';
 })
 export class ProductEditorComponent implements OnInit {
 
-  product$: Observable<Product | undefined> = of(new Product());
+  product: Product | undefined = new Product();
 
   constructor(
     private productService: ProductService,
@@ -19,11 +19,13 @@ export class ProductEditorComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.productService.getAll();
     this.activatedRoute.params.subscribe(
       params =>
         {
-          // console.log(params['idOrName']);
-          this.product$ = this.productService.getBySeoName(params['idOrName']);
+          this.productService.getBySeoName(params['idOrName']).subscribe(
+            product => this.product = product
+          )
       }
     );
   }
