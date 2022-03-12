@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import { Product } from '../model/product';
 
 @Injectable({
@@ -23,4 +23,9 @@ export class ProductService {
   getAll(): void {
     this.list$.next(this.list);
   }
+
+  get(id: number): Observable<Product | undefined> {
+    return of( this.list$.value.find( item => item.id === id ));
+  }
+
 }
