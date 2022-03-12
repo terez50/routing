@@ -5,7 +5,15 @@
       <form>
         <div class="form-group">
           <label>Name</label>
-          <input [(ngModel)]="product.name" [ngModelOptions]="{standalone: true}" type="text" class="form-control">
+          <input [(ngModel)]="product.name" name="name" [ngModelOptions]="{standalone: true}" type="text" class="form-control">
+        </div>
+        <div class="form-group">
+          <label>Price</label>
+          <input [(ngModel)]="product.price" name="price" [ngModelOptions]="{standalone: true}" type="number" class="form-control">
+        </div>
+        <div class="form-group">
+          <label>SEOName</label>
+          <input [(ngModel)]="product.seoName" name="seoName" [ngModelOptions]="{standalone: true}" type="text" class="form-control">
         </div>
       </form>
     </div>
