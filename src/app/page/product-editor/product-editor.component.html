@@ -1,1 +1,12 @@
-<p>product-editor works!</p>
+<!-- {{ (product$ | async)?.seoName }} -->
+
+  <div class="row">
+    <div *ngIf = "(product$ | async) as product" class="col-6 offset-3">
+      <form>
+        <div class="form-group">
+          <label>Name</label>
+          <input [(ngModel)]="product.name" [ngModelOptions]="{standalone: true}" type="text" class="form-control">
+        </div>
+      </form>
+    </div>
+  </div>
