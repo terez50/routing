@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Observable, of } from 'rxjs';
+// import { Observable, of } from 'rxjs';
 import { Product } from 'src/app/model/product';
 import { ProductService } from 'src/app/service/product.service';
 
@@ -28,6 +29,10 @@ export class ProductEditorComponent implements OnInit {
           )
       }
     );
+  }
+
+  onFormSubmit(form: NgForm): void {
+    console.log(form);
   }
 
 }
